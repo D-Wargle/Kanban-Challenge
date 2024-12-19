@@ -16,7 +16,7 @@ import { UserLogin } from "../interfaces/UserLogin";
       if (!response.ok) {
         const errorMessage = await response.json();
         throw new Error('Login failed: ' + errorMessage.message);
-      };
+      }
 
       const data = await response.json();
 
