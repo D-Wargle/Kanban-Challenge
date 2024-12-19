@@ -26,19 +26,24 @@ class AuthService {
     }
   }
 
-  getToken(): string {
+  getToken(): string | null {
     // TODO: return the token
-    
+    const loggedInUser = localStorage.getItem('id_token') || '';
+    return loggedInUser;
   }
 
   login(idToken: string) {
     // TODO: set the token to localStorage
+    localStorage.setItem('id_token', idToken);
     // TODO: redirect to the home page
+    window.location.assign('/');
   }
 
   logout() {
     // TODO: remove the token from localStorage
+    localStorage.removeItem('id_token');
     // TODO: redirect to the login page
+    window.location.assign('/login');
   }
 }
 
